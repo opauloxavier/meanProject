@@ -1,0 +1,96 @@
+<div class="row">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img class="first-slide" style="background-position: 100px;"
+					src="content/img/wesleyAma.jpg" alt="First slide">
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>Entrevista com Safadão</h1>
+						<p>Cantor fala sobre carreira, seu amor pelos fãs e novo
+							Álbum.</p>
+						<p>
+							<a class="btn btn-lg btn-danger" href="catalogo.jsp?cantor=23"
+								role="button">Saiba Mais</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr>
+	</div>
+	<!-- /.carousel -->
+	<div class="col-md-8">
+		<div class="row text-center">
+			<!-- Inicio Grid -->
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-center" style="margin-bottom: 20px;">Bandas
+						Recomendadas</h3>
+				</div>
+			</div>
+			<div class="row">
+					<div class="col-md-3" ng-repeat="artista in Artistas">
+						<a ng-href='detalheArtista/{{artista._id}}'>
+						<img class='customThumb img-responsive img-centered' src='content/img/batmanAvatar.jpg' alt='{{artista.nome}}'></a>
+						<h4><strong>{{artista.nome}}</strong></h4>
+					</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="text-center" style="margin-bottom: 20px;">Bandas
+						Mais Ouvidas</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3" ng-repeat="artista in Artistas">
+						<a href='catalogo.jsp?cantor=cantores.get(i).idCantor'>
+						<img class='customThumb img-responsive img-centered' src='content/img/batmanAvatar.jpg' alt='{{artista.nome}}'></a>
+						<h4><strong>{{artista.nome}}</strong></h4>
+					</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- fecha o col-md-8(conteudo a esquerda)-->
+	<div class="col-md-4">
+		<!-- Conteudo a direita-->
+		<div class="col-md-10 col-md-offset-2">
+			<div class="row">
+				<h4 class="text-center">Top Spot-On</h4>
+				<div class="tabbable">
+					<!-- Only required for left/right tabs -->
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#tab1" data-toggle="tab">Músicas</a></li>
+						<li><a href="#tab2" data-toggle="tab">Artistas</a></li>
+						<li><a href="#tab3" data-toggle="tab">Gêneros</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab1">
+							<div class="list-group">
+								<a  ng-repeat="musica in Musicas | limitTo:10 " ng-href='detalhe/' class='list-group-item'> {{musica.cantor}} - {{musica.nome}}
+								<span class='badge'>1</span></a>
+							</div>
+						</div>
+						<div class="tab-pane" id="tab2">
+							<div class="list-group">
+								<a  ng-repeat="artista in Artistas | limitTo:10 " ng-href='detalhe/' class='list-group-item'> {{artista.nome}}
+								<span class='badge'>1</span></a>
+							</div>
+						</div>
+						<div class="tab-pane" id="tab3">
+							<div class="list-group">
+							<a  ng-repeat="genero in Generos | limitTo:10 " ng-href='detalhe/' class='list-group-item'> {{genero.nome}}
+								<span class='badge'>1</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<!-- Finaliza o container-fluid-->

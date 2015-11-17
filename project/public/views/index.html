@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head> 
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <base href="/">
+
+  <title>Sistema de Recomendações</title>
+  <!-- jquery -->
+  <script src="libs/jquery/dist/jquery.min.js"></script>
+
+  <!--Angular-->
+  <script src="libs/angular/angular.js"></script>
+  <script src="libs/angular-route/angular-route.js"></script>
+
+  <!--Custom Angular-->
+
+  <script src="views/js/controllers/MainCtrl.js"></script>
+  <script src="views/js/controllers/NerdCtrl.js"></script>
+  <script src="views/js/services/NerdService.js"></script>
+  <script src="views/js/appRoutes.js"></script>
+  <script src="views/js/app.js"></script>
+
+
+  <!-- Bootstrap-->
+  <link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- Custom CSS-->
+  <link rel="stylesheet" type="text/css" href="views/css/custom.css">
+
+</head>
+
+<body ng-app="sampleApp" ng-controller="NerdController">
+
+  <!-- Static navbar -->
+      <nav class="navbar navbar-inverse navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Spot-On</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="artistas">Artistas</a></li>
+              <li><a href="sobre">Sobre</a></li>  
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Visitante</strong><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class='dropdown-header'>Sistemas</li>
+                	<li><a href='entrar'>Entrar</a></li>
+                	<li><a href='cadastro'>Criar Conta</a></li>
+                <hr>
+                  <li class="dropdown-header">Outros</li>
+                  <li><a href="#">Reportar Bug</a></li>
+                  <li><a href="#">Sugerir Funcionalidade</a></li>
+                	<li><a href='#'>Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-Wfluid -->
+      </nav>
+
+
+  <div ng-view></div>
+
+<footer id="footer" class="footer text-center" style="background-color: #fffff; ">
+<div class="container">
+<p class="text-muted"> Sistema de Recomendações | 2015 - Todos os direitos reservados. Desenvolvido por <a href="http://www.pauloxavier.com" target="_blank" >Paulo Xavier</a> e <a href="https://www.facebook.com/gosegobia?fref=ts" target="_blank">Gabriel Segobia.<br><a href="mailto:contato.pauloxavier@gmail.com" target="_blank" ><span class="glyphicon glyphicon-envelope"> </span> contato.pauloxavier@gmail.com</a> ou <a href="mailto:segobia.gos@gmail.com" target="_blank" ><span class="glyphicon glyphicon-envelope"> </span> segobia.gos@gmail.com </a></p>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+
+<div class="col-md-8  col-md-offset-2">
+<legend>Criar Usuário </legend>
+ <form class="form-horizontal" action="/api/users" method="post">
+                      <fieldset>
+                      <div class="col-md-12">
+                      <!-- Text input-->
+                        <div class="col-md-10">
+	                      <div class="form-group">
+	                            <label class="control-label" for="Nome">Nome Completo</label>  
+	                            <input name="nome" placeholder="Digite seu nome" class="form-control input-md" type="text">
+	                      </div>
+	                        <div class="form-group">
+	                            <label class="control-label" for="Usuario">Usuário</label>  
+	                            <input name="usuario" placeholder="Digite seu usuario" class="form-control input-md" type="text">
+	                      </div>		
+                          <div class="form-group">
+                            <label class="control-label" for="email">E-mail</label>  
+                            <input name="email" placeholder="Digite seu email" class="form-control input-md" type="email">
+                          </div>
+                        </div>
+                         <div class="col-md-10">
+                          <div class="form-group">
+                            <label class="control-label" for="password">Digite sua senha, 2 vezes</label>  
+                            <input id="textinput" name="senha" placeholder="Digite sua Senha" class="form-control input-md" type="password" required="true">
+                            <input id="textinput" name="senhaAgain" style="margin-top:10px; margin-bottom:10px;" placeholder="Digite Novamente" class="form-control input-md" type="password" required="true">
+							
+							<label>
+						      <input name="checkbox" value="newsletter" type="checkbox">
+						      Desejo Receber Notícias e Novidades do Recommendations e afiliados.
+						    </label>
+						</div>
+                          </div>
+                        </div>
+                       
+                      <div class="col-md-10">
+                        <div class="form-group">
+                          <input name="enviaCadastro" value="Cadastrar" class="btn btn-primary btn-md pull-right" type="submit">
+                        </div>
+                      </div>
+                    </div>
+                      </fieldset>
+                    </form>
+</div>
