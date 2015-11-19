@@ -111,8 +111,8 @@ module.exports = function(app){
 			if(err)
 				res.send(err);
 
-			//res.redirect('/');
-			res.json({message: 'Usuário Criado'});
+			res.redirect('/');
+			//res.json({message: 'Usuário Criado'});
 		});
 	});
 
@@ -130,7 +130,7 @@ module.exports = function(app){
 			if(err)
 				res.send(err);
 
-			res.json({message: 'Musica Criado'});
+			res.redirect('/');
 		});
 	});
 
@@ -146,7 +146,7 @@ module.exports = function(app){
 			if(err)
 				res.send(err);
 
-			res.json({message: 'Artista Criado'});
+			res.redirect('/');
 		});
 	});
 
@@ -163,7 +163,7 @@ module.exports = function(app){
 			if(err)
 				res.send(err);
 
-			res.json({message: 'Album Criado'});
+			res.redirect('/');
 		});
 	});
 
@@ -179,7 +179,7 @@ module.exports = function(app){
 			if(err)
 				res.send(err);
 
-			res.json({message: 'Genero Criado'});
+			res.redirect('/');
 		});
 	});
 
