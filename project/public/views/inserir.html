@@ -1,0 +1,93 @@
+<div class="col-md-12">
+  <legend>Enviando Dados - {{Cantor.nome}}</legend>
+<div class="col-md-8 col-md-offset-2">
+<div class="row">
+</div>
+  <div class="row" style="margin-top:30px;">
+              <div class="tabbable"> <!-- Only required for left/right tabs -->
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab1" data-toggle="tab">Música</a></li>
+                  <li><a href="#tab2" data-toggle="tab">Álbum</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab1">
+                    <form class="form-horizontal" method="POST" action="/api/musicas">
+                      <fieldset>
+                      <div class="col-md-12">
+                      <!-- Text input-->
+                          <div class="col-md-10" style="display: none;">
+                          <div class="form-group">
+                            <label class="control-label" for="nomeMusica">Nome do Cantor</label>  
+                            <input id="textinput" name="nomeCantor" ng-model="Cantor.nome" class="form-control input-md" type="text">
+                          </div>
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group">
+                            <label class="control-label" for="nomeMusica">Nome da Música</label>  
+                            <input id="textinput" name="nomeMusica" placeholder="Digite o nome da Musica" class="form-control input-md" type="text" required="true">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                           <label class="control-label" for="estilo1">Escolha o Álbum</label>  
+                              <select class="form-control text-center" name="album" required="true" style="margin-bottom:10px;")>
+                              <option ng-repeat="album in AlbumsCantor" value='{{album.nome}}'>{{album.nome}}</option>
+                              </select>
+                          </div>
+                        </div>
+                         <div class="col-md-offset-2 col-md-4">
+                          <div class="form-group">
+                           <label class="control-label" for="estilo1">Escolha o Genero</label>  
+                              <select class="form-control text-center" name="genero" required="true" style="margin-bottom:10px;")>
+                              <option ng-repeat="genero in Generos" value='{{genero.nome}}'>{{genero.nome}}</option>
+                              </select>
+                          </div>
+                        </div>
+                      <div class="row">
+                      </div>
+                      <div class="col-md-10">
+                        <div class="form-group">
+                          <input name="enviarMusica" value="Enviar Musica" class="btn btn-primary btn-md pull-right" type="submit">
+                        </div>
+                      </div>
+                    </div>
+                      </fieldset>
+                    </form>
+
+                  </div>
+                  <div class="tab-pane fade" id="tab2">
+                    <form class="form-horizontal" method="post" action="/api/albums">
+                      <fieldset>
+                      <div class="col-md-12">
+                      <!-- Text input-->
+					   	          <div class="col-md-10" style="display:none;">
+                          <div class="form-group">
+                            <label class="control-label" for="nomeMusica">Nome do Cantor</label>  
+                            <input id="textinput" name="cantor" value="{{Cantor.nome}}" class="form-control input-md" type="text">
+                          </div>
+                        </div>
+                        <div class="col-md-10">
+                          <div class="form-group">
+                            <label class="control-label" for="nomeAlbum">Nome do Álbum</label>  
+                            <input id="textinput" name="nome" placeholder="Insira o nome do Álbum" class="form-control input-md" type="text">
+                          </div>
+                        </div>
+                         <div class="col-md-10">
+                          <div class="form-group">
+                            <label class="control-label" for="nomeAlbum">Ano</label>  
+                            <input id="textinput" name="ano" class="form-control input-md" type="text" required="true" placeholder="Insira o Ano do Álbum">
+                          </div>
+                        </div>
+                        <div class="col-md-10">
+                        <div class="form-group">
+                          <input name="enviarAlbum" value="Enviar Album" class="btn btn-primary btn-md pull-right" type="submit">
+                        </div>
+                      </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                </div>
+              </div>
+  </div>
+  </div>
+</div>

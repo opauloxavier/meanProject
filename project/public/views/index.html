@@ -15,8 +15,9 @@
   <!--Custom Angular-->
 
   <script src="views/js/controllers/MainCtrl.js"></script>
-  <script src="views/js/controllers/NerdCtrl.js"></script>
-  <script src="views/js/services/NerdService.js"></script>
+  <script src="views/js/controllers/InserirCtrl.js"></script>
+  <script src="views/js/controllers/ArtistaCtrl.js"></script>
+  <script src="views/js/services/SessionService.js"></script>
   <script src="views/js/appRoutes.js"></script>
   <script src="views/js/app.js"></script>
 
@@ -30,7 +31,7 @@
 
 </head>
 
-<body ng-app="sampleApp" ng-controller="NerdController">
+<body ng-app="sampleApp" ng-init="getLogged();">
 
   <!-- Static navbar -->
       <nav class="navbar navbar-inverse navbar-default">
@@ -51,16 +52,16 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Visitante</strong><span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li class='dropdown-header'>Sistemas</li>
-                	<li><a href='entrar'>Entrar</a></li>
-                	<li><a href='cadastro'>Criar Conta</a></li>
-                <hr>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>{{user.name}}</strong><span class="caret"></span></a>
+                <ul class="dropdown-menu" >
+                  <li class='dropdown-header' ng-hide="logged">Sistemas</li>
+                	<li><a href='login' ng-hide="logged" >Entrar</a></li>
+                	<li><a href='cadastro' ng-hide="logged">Criar Conta</a></li>
+                <hr ng-hide="logged">
                   <li class="dropdown-header">Outros</li>
                   <li><a href="#">Reportar Bug</a></li>
                   <li><a href="#">Sugerir Funcionalidade</a></li>
-                	<li><a href='#'>Logout</a></li>
+                	<li><a ng-click='logout()'>Logout</a></li>
                 </ul>
               </li>
             </ul>

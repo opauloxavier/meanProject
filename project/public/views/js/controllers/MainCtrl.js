@@ -1,8 +1,26 @@
 // public/js/controllers/MainCtrl.js
-angular.module('MainCtrl', []).controller('MainController', function($http,$scope) {
+angular.module('MainCtrl', []).controller('MainController', function($http,$scope,$rootScope,$route) {
 
-    $scope.tagline = 'To the moon and back!';   
+	$rootScope.getLogged = function(){
+		$http.get("/api/logged").success(function(response){
+			$rootScope.user=response;
 
+			if($rootScope.user.logged)
+				$rootScope.logged=true;
+
+			else
+				$rootScope.logged=false;
+
+		});
+	}
+
+	$rootScope.logout = function(){
+		$http.get("/api/logout").success(function(response){
+			$route.reload();
+		});	
+	}  
+
+	$rootScope.getLogged();
 
 	$http.get("/api/artistas").success(function(response){
 			$scope.Artistas = response;
@@ -15,5 +33,6 @@ angular.module('MainCtrl', []).controller('MainController', function($http,$scop
 	$http.get("/api/generos").success(function(response){
 			$scope.Generos = response;
 	});
+
 
 });

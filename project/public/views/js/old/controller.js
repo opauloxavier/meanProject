@@ -45,6 +45,5 @@ app.controller("MainController",function($http, $scope){
 					$scope.usuarios = response;
 			});
     }
-	
 
 });

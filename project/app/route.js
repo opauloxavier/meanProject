@@ -28,6 +28,17 @@ module.exports = function(app){
 		});
 	});
 
+	app.get('/api/musicas/:nomeCantor', function(req, res){
+
+		Musica.find({'cantor': req.params.nomeCantor}, function(err, musicasCantor){
+
+			if(err)
+				res.send(err);
+
+			res.json(musicasCantor);
+		});
+	});
+
 	app.get('/api/artistas', function(req, res){
 
 		Artista.find(function(err, artistas){
@@ -36,6 +47,17 @@ module.exports = function(app){
 				res.send(err);
 
 			res.json(artistas);
+		});
+	});
+
+	app.get('/api/artistas/:nomeCantor', function(req, res){
+
+		Artista.findOne({'nome': req.params.nomeCantor}, function(err, Cantor){
+
+			if(err)
+				res.send(err);
+
+			res.json(Cantor);
 		});
 	});
 
@@ -49,6 +71,20 @@ module.exports = function(app){
 			res.json(albums);
 		});
 	});
+
+
+	app.get('/api/albums/:nomeCantor', function(req, res){
+
+		Album.find({'cantor': req.params.nomeCantor}, function(err, albumsCantor){
+
+			if(err)
+				res.send(err);
+
+			res.json(albumsCantor);
+		});
+
+	});
+
 
 	app.get('/api/generos', function(req, res){
 
@@ -84,9 +120,9 @@ module.exports = function(app){
 
 		var musica = new Musica();
 		
-		musica.nome = req.body.nome;
+		musica.nome = req.body.nomeMusica;
 		musica.genero = req.body.genero;
-		musica.cantor = req.body.cantor;
+		musica.cantor = req.body.nomeCantor;
 		musica.album = req.body.album;
 
 		musica.save(function(err){
@@ -94,7 +130,7 @@ module.exports = function(app){
 			if(err)
 				res.send(err);
 
-			res.json({message: 'Música Criada'});
+			res.json({message: 'Musica Criado'});
 		});
 	});
 
@@ -147,6 +183,43 @@ module.exports = function(app){
 		});
 	});
 
+	app.post('/login',function(req,res){
+		User.findOne({email : req.body.email}, function(err, user){
+			if(!user){
+				 res.redirect("/login");
+			}
+
+			else{
+				if (req.body.senha === user.password) {
+					req.session.user = user;
+					req.session.logged = true;
+					res.redirect("/");
+        			
+     			}
+     			else
+     				res.redirect("/login");
+			}
+
+		});
+	});
+
+	app.get('/api/logged', function(req, res){
+
+		if(req.session.logged){
+			res.json({username:req.session.user.username,name:req.session.user.name,logged:true});
+		}
+		else{
+			res.json({name:"Visitante",logged:false});
+		}
+
+	});
+
+	app.get('/api/logout', function(req, res){
+
+		req.session.destroy();
+		res.redirect("/");
+
+	});
 
 	app.get('/api/users/:user_id', function(req, res){
 

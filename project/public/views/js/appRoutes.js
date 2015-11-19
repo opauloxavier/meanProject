@@ -12,12 +12,12 @@
         // nerds page that will use the NerdController
         .when('/cadastro', {
             templateUrl: 'views/cadastro.html',
-            controller: 'NerdController'
+            controller: 'MainController'
         })
 
-        .when('/entrar', {
+        .when('/login', {
             templateUrl: 'views/entrar.html',
-            controller: 'NerdController'
+            controller: 'MainController'
         })
 
          .when('/artistas', {
@@ -27,12 +27,17 @@
 
          .when('/sobre', {
             templateUrl: 'views/sobre.html',
-            controller: 'NerdController'
+            controller: 'MainController'
         })
 
-          .when('/detalheArtista', {
+          .when('/detalheArtista/:nomeCantor', {
             templateUrl: 'views/detalhe.html',
-            controller: 'NerdController'
+            controller: 'ArtistaController'
+        })
+
+          .when('/inserir/:nomeCantor', {
+            templateUrl: 'views/inserir.html',
+            controller: 'InserirController'
         })
         ;
 

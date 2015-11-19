@@ -3,9 +3,17 @@
 // Depêndencias gerais da aplicação ==============================================================
 var express  = require('express');
 var app = express();
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
+var sessionOptions = {
+	  secret: "secret",
+	  resave : true,
+	  saveUninitialized : false
+	};
+	
+app.use(session(sessionOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
 app.use(bodyParser.urlencoded({

@@ -1,3 +1,5 @@
-angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'NerdCtrl', 'NerdService']).config(['$routeProvider', function($routeProvider) {
+angular.module('sampleApp', ['SessionService','ngRoute', 'appRoutes', 'MainCtrl', 'InserirCtrl','ArtistaCtrl']).config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
+
+
